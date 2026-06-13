@@ -1,0 +1,72 @@
+aid: tinacms
+name: TinaCMS
+description: TinaCMS is an open-source, Git-backed headless CMS that provides a GraphQL Content API for managing Markdown, MDX, and JSON content stored in Git repositories. It enables real-time visual editing for Next.js, Astro, and other frameworks, with TinaCloud offering a hosted Data Layer that indexes and serves content via per-project GraphQL endpoints with editorial workflow, media management, and authentication support.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/tinacms/refs/heads/main/apis.yml
+created: "2026-06-13"
+modified: "2026-06-13"
+specificationVersion: "0.19"
+tags:
+  - CMS
+  - Headless CMS
+  - GraphQL
+  - Git
+  - Content Management
+  - Visual Editing
+  - Markdown
+  - Open Source
+
+apis:
+
+  - aid: tinacms:graphql-content-api
+    name: TinaCMS GraphQL Content API
+    description: A GraphQL API generated from your TinaCMS schema that serves Markdown and JSON content stored in Git repositories. Available locally via the tinacms dev CLI (localhost:4001) or hosted via TinaCloud with per-project endpoints. Supports queries, mutations, filtering, sorting, and pagination across all defined content collections.
+    humanURL: https://tina.io/docs/graphql/overview
+    baseURL: https://content.tinajs.io
+    tags:
+      - GraphQL
+      - Content
+      - CMS
+      - Git
+    properties:
+      - type: Documentation
+        url: https://tina.io/docs/graphql/overview
+      - type: OpenAPI
+        url: https://tina.io/docs/graphql/queries
+
+common:
+
+  - type: Website
+    url: https://tina.io
+
+  - type: Documentation
+    url: https://tina.io/docs
+
+  - type: GitHubOrg
+    url: https://github.com/tinacms
+
+  - type: LinkedIn
+    url: https://linkedin.com/company/tinacms
+
+  - type: Blog
+    url: https://tina.io/blog
+
+  - type: Pricing
+    url: https://tina.io/pricing
+
+  - type: X
+    url: https://x.com/tinacms
+
+  - type: Plans
+    url: plans/tinacms-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/tinacms-rate-limits.yml
+
+  - type: FinOps
+    url: finops/tinacms-finops.yml
+
+maintainers:
+
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,76 @@
+name: TinaCMS FinOps
+description: Financial operations guidance for managing TinaCloud costs, optimizing spend across plan tiers, and understanding the cost model for TinaCMS deployments.
+url: https://tina.io/pricing
+
+cost_model:
+  type: seat_based
+  billing_periods:
+    - monthly
+    - annual
+  annual_discount: true
+  notes:
+    - Annual billing saves approximately 20% compared to monthly billing.
+    - Additional seats can be purchased per user above the base plan allocation.
+    - The Free plan is truly free forever with no credit card required.
+    - Self-hosted TinaCMS deployments avoid TinaCloud subscription costs but require infrastructure.
+
+optimization:
+  - tip: Use the Free plan for personal projects or proof-of-concept deployments (up to 2 users).
+  - tip: Choose annual billing on Team, Team Plus, or Business plans to save approximately 20%.
+  - tip: Self-hosting TinaCMS eliminates TinaCloud subscription costs; you only pay for your own hosting infrastructure (e.g., Vercel, Netlify, or custom server).
+  - tip: Use the open-source self-hosted path with MongoDB or Redis adapters to avoid per-seat costs at scale.
+  - tip: Audit user seat count regularly; remove inactive users to stay within your plan tier and avoid overage charges on additional seats.
+  - tip: The Business plan at $2,990/year supports up to 20 base users with unlimited additional seats at $180/year per user, making it cost-effective for large teams vs. per-user SaaS alternatives.
+
+plans_cost_summary:
+  - name: Free
+    monthly_cost: 0
+    annual_cost: 0
+    base_users: 2
+
+  - name: Team
+    monthly_cost: 24
+    annual_cost: 290
+    base_users: 3
+    max_users: 10
+    additional_user_annual: 90
+
+  - name: Team Plus
+    monthly_cost: 41
+    annual_cost: 490
+    base_users: 5
+    max_users: 20
+    additional_user_annual: 150
+
+  - name: Business
+    monthly_cost: 249
+    annual_cost: 2990
+    base_users: 20
+    max_users: unlimited
+    additional_user_annual: 180
+
+  - name: Enterprise
+    monthly_cost: custom
+    annual_cost: custom
+    base_users: custom
+    max_users: unlimited
+    additional_user_annual: custom
+
+self_hosting:
+  description: TinaCMS is fully open-source and can be self-hosted to eliminate TinaCloud subscription fees.
+  backend_options:
+    - Vercel serverless functions
+    - Netlify functions
+    - Custom Node.js server
+  database_adapters:
+    - Vercel KV
+    - MongoDB
+    - Custom adapters
+  auth_providers:
+    - Auth.js
+    - Clerk
+    - Custom implementations
+  cost_factors:
+    - Hosting compute (Vercel, Netlify, AWS, etc.)
+    - Database storage (MongoDB Atlas, Vercel KV, etc.)
+    - Media storage (Cloudinary, AWS S3, DigitalOcean Spaces, or repo-based)

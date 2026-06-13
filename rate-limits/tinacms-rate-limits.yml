@@ -1,0 +1,26 @@
+name: TinaCMS Rate Limits
+description: Rate limit information for the TinaCloud GraphQL Content API. TinaCMS does not publish explicit per-plan rate limit numbers; the Data Layer buffers requests between TinaCloud and GitHub to reduce exposure to GitHub API rate limits. Business and Enterprise plans include API access with higher throughput expectations.
+url: https://tina.io/docs/reference/content-api/data-layer
+
+notes:
+  - TinaCMS uses a Data Layer that indexes content into a database, buffering requests between TinaCloud and GitHub to avoid hitting GitHub API rate limits directly.
+  - The local development GraphQL API runs on http://localhost:4001 with no rate limits applied.
+  - TinaCloud hosted GraphQL endpoints are per-project; each project receives its own endpoint.
+  - No explicit requests-per-minute or requests-per-day limits are published in official documentation.
+  - Business and Enterprise plans are required for production API access with full throughput.
+  - The Assets API redirects oversized originals to presigned S3 URLs (as of version 2026.06.1).
+
+limits:
+  - scope: local_development
+    description: Local GraphQL API started by tinacms dev command on localhost:4001
+    requests_per_minute: unlimited
+    notes: No rate limiting applied in local development mode
+
+  - scope: tinacloud_graphql
+    description: TinaCloud hosted GraphQL Content API
+    requests_per_minute: not_published
+    notes: Buffers through TinaCMS Data Layer; contact support for specific limits on Business and Enterprise plans
+
+  - scope: github_passthrough
+    description: GitHub API calls made by TinaCloud on behalf of the application
+    notes: TinaCloud Data Layer absorbs GitHub API rate limits by caching and indexing content locally, reducing direct GitHub API calls

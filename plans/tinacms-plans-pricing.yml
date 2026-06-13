@@ -1,0 +1,101 @@
+name: TinaCMS Plans and Pricing
+description: Pricing plans for TinaCloud, the hosted backend service for TinaCMS, including user limits, feature access, and support tiers.
+url: https://tina.io/pricing
+plans:
+
+  - name: Free
+    description: Free forever plan for individuals and small projects getting started with TinaCMS.
+    price: 0
+    currency: USD
+    period: month
+    users: 2
+    projects: 1
+    features:
+      - Visual editing
+      - Git-backed content
+      - GraphQL API
+      - Community support
+      - Unlimited document repositories
+      - 100 MB asset size cap
+
+  - name: Team
+    description: For small teams that need editorial workflow and collaboration features.
+    price: 24
+    currency: USD
+    period: month
+    annual_price: 290
+    users: 3
+    max_users: 10
+    additional_seat_annual: 90
+    projects: 1
+    features:
+      - Visual editing
+      - Git-backed content
+      - GraphQL API
+      - Editorial Workflow
+      - Team support
+      - Unlimited document repositories
+      - 100 MB asset size cap
+
+  - name: Team Plus
+    description: For growing teams that need more users and access to upcoming AI features.
+    price: 41
+    currency: USD
+    period: month
+    annual_price: 490
+    users: 5
+    max_users: 20
+    additional_seat_annual: 150
+    projects: 1
+    features:
+      - Visual editing
+      - Git-backed content
+      - GraphQL API
+      - Editorial Workflow
+      - AI Features (coming soon)
+      - Team support
+      - Unlimited document repositories
+      - 100 MB asset size cap
+
+  - name: Business
+    description: For larger teams and businesses requiring API access, more roles, and business-grade support.
+    price: 249
+    currency: USD
+    period: month
+    annual_price: 2990
+    users: 20
+    max_users: unlimited
+    additional_seat_annual: 180
+    projects: 1
+    features:
+      - Visual editing
+      - Git-backed content
+      - GraphQL API access (Beta)
+      - Editorial Workflow
+      - AI Features (coming soon)
+      - 3 roles (Beta)
+      - Business support
+      - Unlimited document repositories
+      - 100 MB asset size cap
+
+  - name: Enterprise
+    description: Custom enterprise plan with dedicated support, SSO, GitHub Enterprise, and fully custom configuration.
+    price: custom
+    currency: USD
+    period: custom
+    users: custom
+    max_users: unlimited
+    projects: custom
+    features:
+      - Visual editing
+      - Git-backed content
+      - GraphQL API
+      - Custom Editorial Workflow
+      - AI Features
+      - Custom roles
+      - SSO
+      - GitHub Enterprise support
+      - Dedicated account manager
+      - Enterprise support
+      - Unlimited document repositories
+      - Custom asset size cap
