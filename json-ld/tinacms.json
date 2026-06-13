@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://tina.io",
+  "name": "TinaCMS",
+  "description": "TinaCMS is an open-source, Git-backed headless CMS that provides a GraphQL Content API for managing Markdown, MDX, and JSON content stored in Git repositories. It enables real-time visual editing for Next.js, Astro, and other frameworks, with TinaCloud offering a hosted Data Layer that indexes and serves content via per-project GraphQL endpoints with editorial workflow, media management, and authentication support.",
+  "url": "https://tina.io",
+  "applicationCategory": "Content Management System",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://tina.io/pricing"
+  },
+  "sameAs": [
+    "https://github.com/tinacms",
+    "https://linkedin.com/company/tinacms",
+    "https://x.com/tinacms"
+  ],
+  "maintainer": {
+    "@type": "Organization",
+    "name": "TinaCMS",
+    "url": "https://tina.io"
+  },
+  "license": "https://github.com/tinacms/tinacms/blob/main/LICENSE",
+  "codeRepository": "https://github.com/tinacms/tinacms",
+  "keywords": [
+    "CMS",
+    "Headless CMS",
+    "GraphQL",
+    "Git",
+    "Content Management",
+    "Visual Editing",
+    "Markdown",
+    "Open Source"
+  ],
+  "potentialAction": {
+    "@type": "ReadAction",
+    "target": "https://tina.io/docs"
+  }
+}

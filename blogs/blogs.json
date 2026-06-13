@@ -1,0 +1,71 @@
+{
+  "provider": "tinacms",
+  "url": "https://tina.io/blog",
+  "pulled": "2026-06-13",
+  "posts": [
+    {
+      "title": "Separate Content Repos are here for TinaCloud",
+      "url": "https://tina.io/blog/tinacloud-separate-content-repos",
+      "date": "2026-06-12",
+      "author": "Josh Berman",
+      "description": "TinaCloud now allows projects to connect two separate GitHub repositories: one for application code and schema, another for content and media. This feature addresses team needs around workflow separation, access control, and scalability.",
+      "summary": "TinaCloud now supports binding a generator repository (containing Tina schema and application code) with a separate content repository (holding markdown, MDX, and media files). Key benefits include decoupled commit history, editor access control limited to content, reduced generator repo bloat, and support for single content repos powering multiple sites or locales. Setup is via the TinaCloud dashboard and uses a localContentPath config field for local development."
+    },
+    {
+      "title": "Astro is becoming the default starter for TinaCMS",
+      "url": "https://tina.io/blog/astro-is-becoming-the-default-tinacms-starter",
+      "date": "2026-05-28",
+      "author": "Matt Wicks",
+      "description": "TinaCMS is transitioning to Astro as its default starter framework. The latest Astro starter features React-free visual editing capabilities, allowing editors to preview changes without adding unnecessary client-side code for visitors.",
+      "summary": "TinaCMS recognizes growing community demand for Astro integration, with Astro starter clones significantly outpacing the Next.js option. The improved Astro implementation uses a data islands approach for visual editing, registering editable sections as islands that fetch their own content and re-render locally. This delivers live preview functionality while keeping the public site as lightweight static HTML. The migration involves converting custom rich-text components to Astro format and adopting the new TinaIsland component wrapper."
+    },
+    {
+      "title": "What we're planning for TinaCMS v4",
+      "url": "https://tina.io/blog/tinacms-v4-is-coming",
+      "date": "2026-05-13",
+      "author": "TinaCMS Team",
+      "description": "The TinaCMS team announces the beginning of development on version 4, emphasizing that v3 will continue receiving support. The new major version aims to improve extensibility and customization through a plugin-based architecture.",
+      "summary": "TinaCMS v4 will make the platform easier to build on by exposing more extension points. Key planned improvements include a plugin architecture for field types, sidebars, media providers, and search; forms rebuilt using React Hook Form; standardized field types; comprehensive editor UI redesign; and enhanced Git-based editorial workflows with branch and pull request management in the editor. v4 ships as @tinacms/tinacms, allowing existing v3 projects to remain stable."
+    },
+    {
+      "title": "Vibe blogging with GitHub Copilot & TinaCMS",
+      "url": "https://tina.io/blog/customblog_tinacmsai",
+      "date": "2026-03-20",
+      "author": "TinaCMS Team",
+      "description": "This article explores a modern workflow combining TinaCMS with AI tools to rapidly build and manage content-driven blogs, prioritizing speed, flexibility, and content ownership.",
+      "summary": "The post demonstrates AI-assisted project scaffolding using GitHub Copilot in agent mode with a Next.js starter template. The workflow progresses from zero to production-ready: generate project, customize UI via prompts, create AI-generated content, refine with the TinaCMS editor, and deploy via Git and TinaCloud. All content remains in GitHub for complete ownership and version control flexibility."
+    },
+    {
+      "title": "Vibe Coding TinaCMS Custom Components",
+      "url": "https://tina.io/blog/vibecodingcomponents_blog",
+      "date": "2026-02-16",
+      "author": "TinaCMS Team",
+      "description": "This article explores how AI tools can streamline the creation of custom field components in TinaCMS, moving from idea to working editor UI in minutes.",
+      "summary": "The walkthrough demonstrates AI-assisted custom component creation in TinaCMS, starting with a standard TinaCMS and Next.js setup. The team used AI to create a terminal-style block with theming capabilities, iteratively refining it with targeted prompts. Key steps included initial generation, replacing basic UI elements with richer components, problem-solving styling issues, and adding preview images for full editor integration."
+    },
+    {
+      "title": "Why TinaCloud Works So Well with GitHub",
+      "url": "https://tina.io/blog/data_layer_blog",
+      "date": "2026-01-08",
+      "author": "TinaCMS Team",
+      "description": "This article explains how TinaCMS integrates efficiently with GitHub through its data layer, which sits between repositories and the CMS to optimize content operations.",
+      "summary": "The data layer centralizes GitHub API interactions, reducing latency and complexity compared to repeated direct API calls. TinaCloud's key advantage is automatic branch indexing from GitHub repositories, enabling content access across different branches and supporting editorial workflows tied to pull requests. The architecture delivers better performance, more reliable workflows, and greater visibility into content across branches."
+    },
+    {
+      "title": "Improving Editorial Workflow Reliability in TinaCMS",
+      "url": "https://tina.io/blog/blog_editorial-workflow",
+      "date": "2025-12-10",
+      "author": "TinaCMS Team",
+      "description": "This update addresses a critical user experience issue where individuals unintentionally lost pull requests by navigating away from the workflow status screen.",
+      "summary": "Key improvements include autofilled branch names, improved visual design with clearer cues, real-time step-by-step status updates, a locked workflow state that prevents interruptions (continues in background even if browser closes), and direct links to newly created pull requests. These enhancements reduce failed pull requests and provide teams with greater confidence in the content collaboration process."
+    },
+    {
+      "title": "Modernizing the Core for Security and Performance",
+      "url": "https://tina.io/blog/modernizing-to-esm",
+      "date": "2025-11-26",
+      "author": "TinaCMS Team",
+      "description": "TinaCMS is transitioning to ES Modules (ESM) exclusively, discontinuing CommonJS support to enhance security, improve ecosystem compatibility, and streamline the build system.",
+      "summary": "The update addresses security vulnerabilities from outdated CJS-dependent packages, incompatibility with ESM-only libraries like micromark and hast, and build pipeline complexities. Key improvements include upgrading Mermaid to its latest version, resolving self-hosting complications through proper database bundling, and implementing esbuild polyfills for legacy CJS drivers. Breaking changes require projects to use ESM syntax with import statements and include type: module in package.json."
+    }
+  ]
+}

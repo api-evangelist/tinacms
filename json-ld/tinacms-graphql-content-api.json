@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "@id": "https://tina.io/docs/graphql/overview",
+  "name": "TinaCMS GraphQL Content API",
+  "description": "A GraphQL API generated from your TinaCMS schema that serves Markdown and JSON content stored in Git repositories. Available locally via the tinacms dev CLI (localhost:4001) or hosted via TinaCloud with per-project endpoints. Supports queries, mutations, filtering, sorting, and pagination across all defined content collections.",
+  "url": "https://tina.io/docs/graphql/overview",
+  "documentation": "https://tina.io/docs/graphql/overview",
+  "provider": {
+    "@type": "Organization",
+    "name": "TinaCMS",
+    "url": "https://tina.io"
+  },
+  "termsOfService": "https://tina.io/docs",
+  "keywords": [
+    "GraphQL",
+    "Content",
+    "CMS",
+    "Git",
+    "Headless",
+    "API"
+  ],
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://content.tinajs.io",
+    "serviceType": "GraphQL API"
+  },
+  "potentialAction": [
+    {
+      "@type": "ReadAction",
+      "target": "https://tina.io/docs/graphql/queries"
+    },
+    {
+      "@type": "UpdateAction",
+      "target": "https://tina.io/docs/graphql/mutations"
+    }
+  ],
+  "featureList": [
+    "GraphQL queries for content collections",
+    "GraphQL mutations for creating and updating documents",
+    "Filtering and sorting across collections",
+    "Pagination support",
+    "Local development server (localhost:4001)",
+    "TinaCloud hosted endpoints",
+    "Real-time visual editing integration",
+    "Branch-based editorial workflows"
+  ]
+}
