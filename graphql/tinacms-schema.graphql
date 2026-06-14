@@ -1,0 +1,232 @@
+"""
+TinaCMS GraphQL Content API — Base Schema (SDL)
+
+This schema describes the static base types that are present in every TinaCMS
+project. Collection-specific types (e.g. Post, Author, PostConnection) are
+generated at build time from tina/config.ts and will vary per project.
+
+Source: packages/@tinacms/graphql/src/builder/static-definitions.ts
+        packages/@tinacms/graphql/src/ast-builder/index.ts
+        packages/@tinacms/graphql/src/builder/index.ts
+Endpoint: https://content.tinajs.io/1.0/content/{clientId}/github/{branch}
+Local:    http://localhost:4001/graphql
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+"""References another document — used as a foreign key."""
+scalar Reference
+
+"""Arbitrary JSON value (used for rich-text AST and raw document values)."""
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Interfaces
+# ---------------------------------------------------------------------------
+
+"""Every node in the graph has a globally unique ID."""
+interface Node {
+  id: ID!
+}
+
+"""Every content document implements Document."""
+interface Document {
+  id: ID!
+  _sys: SystemInfo
+  _values: JSON!
+}
+
+"""Relay-compliant pagination connection interface."""
+interface Connection {
+  totalCount: Float!
+  pageInfo: PageInfo!
+}
+
+# ---------------------------------------------------------------------------
+# Core object types
+# ---------------------------------------------------------------------------
+
+"""Cursor-based pagination information (Relay spec)."""
+type PageInfo {
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+  startCursor: String!
+  endCursor: String!
+}
+
+"""
+Filesystem metadata attached to every document via the _sys field.
+"""
+type SystemInfo {
+  filename: String!
+  title: String
+  basename: String!
+  hasReferences: Boolean
+  breadcrumbs(excludeExtension: Boolean): [String!]!
+  path: String!
+  relativePath: String!
+  extension: String!
+  template: String!
+  collection: Collection!
+}
+
+"""
+A folder node returned by collection list queries when includeFolders is true.
+"""
+type Folder {
+  name: String!
+  path: String!
+}
+
+"""
+Metadata about a single collection as returned by the collection / collections queries.
+"""
+type Collection {
+  name: String!
+  slug: String!
+  label: String
+  path: String!
+  format: String
+  matches: String
+  templates: [JSON]
+  fields: [JSON]
+  documents(
+    before: String
+    after: String
+    first: Float
+    last: Float
+    sort: String
+    filter: JSON
+    folder: String
+  ): DocumentConnection!
+}
+
+# ---------------------------------------------------------------------------
+# Multi-collection document union and connection
+# ---------------------------------------------------------------------------
+
+"""
+A generic document node that can belong to any collection.
+Used by the root `document` query and cross-collection mutations.
+Collection-specific union members (e.g. PostDocument | AuthorDocument)
+are generated per project schema.
+"""
+interface DocumentNode implements Node & Document {
+  id: ID!
+  _sys: SystemInfo
+  _values: JSON!
+}
+
+"""Relay connection wrapping a list of DocumentNode edges."""
+type DocumentConnection implements Connection {
+  totalCount: Float!
+  pageInfo: PageInfo!
+  edges: [DocumentEdge]
+}
+
+"""An edge in a DocumentConnection."""
+type DocumentEdge {
+  cursor: String!
+  node: DocumentNode
+}
+
+# ---------------------------------------------------------------------------
+# Root Query type
+# ---------------------------------------------------------------------------
+
+type Query {
+  """
+  Fetch any document by its global ID, regardless of collection.
+  """
+  node(id: String): Node!
+
+  """
+  Fetch a single document from any collection using collection name + relativePath.
+  """
+  document(collection: String, relativePath: String): DocumentNode!
+
+  """
+  Fetch a paginated list of documents across all collections.
+  """
+  documentList(
+    before: String
+    after: String
+    first: Float
+    last: Float
+    sort: String
+    filter: JSON
+  ): DocumentConnection!
+
+  """
+  Fetch metadata for a single collection by name.
+  """
+  collection(collection: String): Collection!
+
+  """
+  Fetch metadata for all collections defined in the project schema.
+  """
+  collections: [Collection!]!
+
+  # -------------------------------------------------------------------------
+  # Per-collection queries are generated from tina/config.ts.
+  # Example pattern for a collection named "post":
+  #
+  #   post(relativePath: String!): Post!
+  #   postConnection(
+  #     before: String
+  #     after: String
+  #     first: Float
+  #     last: Float
+  #     sort: String
+  #     filter: PostFilter
+  #   ): PostConnection!
+  # -------------------------------------------------------------------------
+}
+
+# ---------------------------------------------------------------------------
+# Root Mutation type
+# ---------------------------------------------------------------------------
+
+type Mutation {
+  """
+  Add a new empty document to a collection (places it in a pending state).
+  """
+  addPendingDocument(
+    collection: String!
+    relativePath: String!
+    template: String
+  ): DocumentNode!
+
+  """
+  Create a new document in any collection.
+  """
+  createDocument(
+    collection: String
+    relativePath: String!
+    params: JSON!
+  ): DocumentNode!
+
+  """
+  Update an existing document in any collection.
+  """
+  updateDocument(
+    collection: String
+    relativePath: String!
+    params: JSON!
+  ): DocumentNode!
+
+  """
+  Delete a document from any collection.
+  """
+  deleteDocument(collection: String, relativePath: String!): DocumentNode!
+
+  # -------------------------------------------------------------------------
+  # Per-collection typed mutations are generated from tina/config.ts.
+  # Example pattern for a collection named "post":
+  #
+  #   createPost(relativePath: String!, params: PostMutation!): Post!
+  #   updatePost(relativePath: String!, params: PostMutation!): Post!
+  # -------------------------------------------------------------------------
+}
