@@ -67,5 +67,17 @@
       "description": "TinaCMS is transitioning to ES Modules (ESM) exclusively, discontinuing CommonJS support to enhance security, improve ecosystem compatibility, and streamline the build system.",
       "summary": "The update addresses security vulnerabilities from outdated CJS-dependent packages, incompatibility with ESM-only libraries like micromark and hast, and build pipeline complexities. Key improvements include upgrading Mermaid to its latest version, resolving self-hosting complications through proper database bundling, and implementing esbuild polyfills for legacy CJS drivers. Breaking changes require projects to use ESM syntax with import statements and include type: module in package.json."
     }
-  ]
+  ],
+  "repo": "tinacms",
+  "feeds": [
+    {
+      "source": "https://linkedin.com/company/tinacms",
+      "feed_url": "https://linkedin.com/company/tinacms",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
 }
