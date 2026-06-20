@@ -6,7 +6,7 @@ description: TinaCMS is an open-source, Git-backed headless CMS that provides a 
   TinaCloud offering a hosted Data Layer that indexes and serves content via per-project
   GraphQL endpoints with editorial workflow, media management, and authentication
   support.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/tinacms/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
