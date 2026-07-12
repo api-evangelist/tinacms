@@ -43,6 +43,10 @@ apis:
   - url: graphql/tinacms-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/tinacms-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/tinacms-domain-security.yml
 - type: Website
   url: https://tina.io
 - type: Documentation
