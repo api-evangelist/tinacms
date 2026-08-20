@@ -31,6 +31,15 @@ tags:
 - Content Management
 - Visual Editing
 - Markdown
+- Open-Source
+tags_raw:
+- CMS
+- Headless CMS
+- GraphQL
+- Git
+- Content Management
+- Visual Editing
+- Markdown
 - Open Source
 apis:
 - aid: tinacms:graphql-content-api
